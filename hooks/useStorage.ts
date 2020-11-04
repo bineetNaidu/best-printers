@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
-import { projectStorage, projectFirestore } from '../firebase';
+import { projectStorage, projectFirestore, timestamp } from '../firebase';
 
 const useStorage = (
   collectionName: string,
   file: any,
-  github: string,
-  link: string,
-  name: string,
+  data: any,
   setReady: React.Dispatch<boolean>
 ) => {
   // STATES
@@ -30,7 +28,7 @@ const useStorage = (
       (err) => setError(err),
       async () => {
         const url = await storageRef.getDownloadURL();
-        collectionRef.add({ url, github, link, name });
+        collectionRef.add({ url, ...data, timestamp });
         setUrl(url);
         setReady(false);
       }
