@@ -1,0 +1,5 @@
+.adminCreateForm {
+  display: flex;
+  flex-direction: column;
+  padding: 4rem;
+}

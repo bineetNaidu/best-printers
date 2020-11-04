@@ -1,6 +1,7 @@
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import AdminCreateForm from '../../components/AdminCreateForm';
 import styles from '../../styles/adminIndex.module.css';
 
 const index: React.FC = () => {
@@ -9,7 +10,7 @@ const index: React.FC = () => {
       <Grid container>
         <Grid item xs>
           <Paper elevation={1}>
-            <h1>Left</h1>
+            <AdminCreateForm />
           </Paper>
         </Grid>
         <Grid item xs>
