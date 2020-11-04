@@ -1,17 +1,29 @@
-import React from 'react';
+import { useState } from 'react';
 import styles from './AdminCreateForm.module.css';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import useFormState from '../hooks/useFormState';
+import ProgressBar from './ProgressBar';
 
 const AdminCreateForm = () => {
   // States
   const [name, handleName, resetname] = useFormState('');
   const [description, handleDescription, resetDesc] = useFormState('');
-  const [file, setFile] = React.useState<any>(undefined);
-  console.log(file);
+  const [file, setFile] = useState<any>(undefined);
+  const [ready, setReady] = useState<boolean>(false);
+
+  // Functions
+  const handleSumbit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (description && name && file) {
+      setReady(true);
+    } else {
+      setReady(false);
+      alert('You Need To fill out the fields');
+    }
+  };
   return (
-    <form className={styles.adminCreateForm}>
+    <form className={styles.adminCreateForm} onSubmit={handleSumbit}>
       <h1>Add New Printer</h1>
       <TextField
         label="Name"
@@ -33,6 +45,17 @@ const AdminCreateForm = () => {
       <Button type="submit" variant="contained" color="primary">
         Upload
       </Button>
+      {ready && (
+        <ProgressBar
+          file={file}
+          setFile={setFile}
+          name={name}
+          resetName={resetname}
+          description={description}
+          resetDesc={resetDesc}
+          setReady={setReady}
+        />
+      )}
     </form>
   );
 };
