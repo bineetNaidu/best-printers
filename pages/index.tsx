@@ -1,8 +1,13 @@
+import PrinterCard from '../components/PrinterCard';
+import useFirestore from '../hooks/useFirestore';
+import Container from '@material-ui/core/Container';
+
 const index = () => {
+  const { docs } = useFirestore('printers');
   return (
-    <div>
-      <h1>Lets Build the best printers site</h1>
-    </div>
+    <Container>
+      {docs.length && docs.map((p) => <PrinterCard key={p.id} {...p} />)}
+    </Container>
   );
 };
 

@@ -1,0 +1,7 @@
+.productCard {
+  max-width: 345px;
+}
+
+.productCard__img {
+  height: 140px;
+}
