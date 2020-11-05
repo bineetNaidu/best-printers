@@ -2,12 +2,13 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import AdminCreateForm from '../../components/AdminCreateForm';
+import AdminPrintersList from '../../components/AdminPrintersList';
 import styles from '../../styles/adminIndex.module.css';
 
 const index: React.FC = () => {
   return (
     <Container className={styles.adminIndex}>
-      <Grid container>
+      <Grid container spacing={2}>
         <Grid item xs>
           <Paper elevation={1}>
             <AdminCreateForm />
@@ -15,7 +16,7 @@ const index: React.FC = () => {
         </Grid>
         <Grid item xs>
           <Paper elevation={1}>
-            <h1>Right</h1>
+            <AdminPrintersList />
           </Paper>
         </Grid>
       </Grid>
