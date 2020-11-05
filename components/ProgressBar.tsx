@@ -21,12 +21,13 @@ const ProgressBar: React.FC<Props> = ({
   description,
 }) => {
   // HOOKS
-  const { url, progress } = useStorage(
+  const { url, progress, error } = useStorage(
     'printers',
     file,
     { name, description },
     setReady
   );
+  error && alert(error);
   useEffect(() => {
     if (url) {
       setReady(false);
