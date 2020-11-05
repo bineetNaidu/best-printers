@@ -10,3 +10,7 @@
   font-family: 'Pacifico', cursive;
   font-size: xx-large;
 }
+
+.header__drawer {
+  width: 240px;
+}
