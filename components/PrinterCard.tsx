@@ -6,6 +6,9 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import styles from './PrinterCard.module.css';
+import { useEffect, useState } from 'react';
+import Box from '@material-ui/core/Box';
+import Skeleton from '@material-ui/lab/Skeleton';
 
 interface Props {
   id: string;
@@ -17,31 +20,45 @@ interface Props {
 }
 
 const PrinterCard: React.FC<Props> = ({ name, url, description }) => {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 3000);
+  }, []);
   return (
     <Card className={styles.productCard}>
-      <CardActionArea>
-        <CardMedia
-          className={styles.productCard__img}
-          image={url}
-          title={name}
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {name}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {description.substring(0, 50)}...
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          View
-        </Button>
-      </CardActions>
+      {loading ? (
+        <Box pt={0.5}>
+          <Skeleton variant="rect" width="100%" height={118} />
+          <Skeleton />
+          <Skeleton />
+        </Box>
+      ) : (
+        <>
+          <CardActionArea>
+            <CardMedia
+              className={styles.productCard__img}
+              image={url}
+              title={name}
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2">
+                {name}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+                {description.substring(0, 50)}...
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+          <CardActions>
+            <Button size="small" color="primary">
+              Share
+            </Button>
+            <Button size="small" color="primary">
+              View
+            </Button>
+          </CardActions>
+        </>
+      )}
     </Card>
   );
 };

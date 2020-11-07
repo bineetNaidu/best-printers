@@ -1,5 +1,8 @@
 .productCard {
   max-width: 345px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .productCard__img {
