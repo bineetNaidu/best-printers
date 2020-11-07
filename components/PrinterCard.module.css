@@ -4,6 +4,8 @@
   flex-direction: column;
   justify-content: center;
   position: relative;
+  flex: 1;
+  flex-wrap: wrap;
 }
 
 .productCard__img {
