@@ -8,15 +8,16 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Divider from '@material-ui/core/Divider';
 import useFormState from '../hooks/useFormState';
-import { projectAuth, projectAuthProvider } from '../firebase';
+import { projectAuth } from '../firebase';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
-const login: React.FC = () => {
+const register: React.FC = () => {
   // State
   const router = useRouter();
   const [email, handleEmail] = useFormState('');
   const [password, handlePassword] = useFormState('');
+  const [username, handleUsername] = useFormState('');
 
   // Functions
   const handleEmailPasswordAuthSignin = (
@@ -25,25 +26,15 @@ const login: React.FC = () => {
     e.preventDefault();
     if (email && password)
       projectAuth
-        .signInWithEmailAndPassword(email, password)
+        .createUserWithEmailAndPassword(email, password)
         .then((authUser) => {
           if (authUser) {
-            router.push('/');
+            projectAuth.currentUser
+              .updateProfile({ displayName: username })
+              .then(() => router.push('/'));
           }
         })
         .catch((e) => alert(e.message));
-  };
-
-  const handleLoginWithGoogle = (e: any) => {
-    e.preventDefault();
-    projectAuth
-      .signInWithPopup(projectAuthProvider)
-      .then((authUser) => {
-        if (authUser) {
-          router.push('/');
-        }
-      })
-      .catch((e) => alert(e.message));
   };
 
   return (
@@ -54,7 +45,7 @@ const login: React.FC = () => {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Create a New Account
         </Typography>
         <form noValidate onSubmit={handleEmailPasswordAuthSignin}>
           <TextField
@@ -62,8 +53,16 @@ const login: React.FC = () => {
             margin="normal"
             required
             fullWidth
+            label="Username"
+            value={username}
+            onChange={handleUsername}
+          />{' '}
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
             label="Email Address"
-            autoFocus
             value={email}
             onChange={handleEmail}
           />
@@ -78,22 +77,14 @@ const login: React.FC = () => {
             onChange={handlePassword}
           />
           <Button type="submit" fullWidth variant="contained" color="secondary">
-            Sign In
+            Register Account
           </Button>
           <Divider style={{ margin: '1rem 0' }} />
         </form>
-        <Button
-          fullWidth
-          variant="contained"
-          color="primary"
-          onClick={handleLoginWithGoogle}
-        >
-          Sign In With Google
-        </Button>
         <Divider />
-        <Link href="/register">
+        <Link href="/login">
           <a style={{ textDecoration: 'underline' }}>
-            New to the Site. Create?
+            Already have an Account?
           </a>
         </Link>
       </div>
@@ -101,4 +92,4 @@ const login: React.FC = () => {
   );
 };
 
-export default login;
+export default register;
