@@ -12,5 +12,10 @@
 }
 
 .header__drawer {
-  width: 240px;
+  width: 250px;
+}
+
+.header__links {
+  display: flex;
+  justify-content: center;
 }

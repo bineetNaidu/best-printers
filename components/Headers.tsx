@@ -16,6 +16,10 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import InfoIcon from '@material-ui/icons/Info';
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
+import HomeIcon from '@material-ui/icons/Home';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import TwitterIcon from '@material-ui/icons/Twitter';
 
 type User = {
   username: string;
@@ -80,31 +84,50 @@ const Headers: React.FC<Props> = ({ user }) => {
         <Divider />
         <List>
           <ListItem button>
+            <ListItemIcon>
+              <HomeIcon />
+            </ListItemIcon>
+            <Link href="/home">
+              <ListItemText primary="Home" />
+            </Link>
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <InfoIcon />
+            </ListItemIcon>
             <Link href="/about">
-              <ListItemIcon>
-                <InfoIcon />
-              </ListItemIcon>
               <ListItemText primary="About" />
             </Link>
           </ListItem>
           <ListItem button>
+            <ListItemIcon>
+              <ContactSupportIcon />
+            </ListItemIcon>
             <Link href="/contact">
-              <ListItemIcon>
-                <ContactSupportIcon />
-              </ListItemIcon>
               <ListItemText primary="Contact Us" />
             </Link>
           </ListItem>
           <ListItem button>
+            <ListItemIcon>
+              <SupervisorAccountIcon />
+            </ListItemIcon>
             <Link href="/admin">
-              <ListItemIcon>
-                <SupervisorAccountIcon />
-              </ListItemIcon>
               <ListItemText primary="Admin" />
             </Link>
           </ListItem>
         </List>
         <Divider />
+        <div className={styles.header__links}>
+          <IconButton>
+            <FacebookIcon />
+          </IconButton>
+          <IconButton>
+            <InstagramIcon />
+          </IconButton>
+          <IconButton>
+            <TwitterIcon />
+          </IconButton>
+        </div>
       </Drawer>
     </>
   );
