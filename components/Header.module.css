@@ -9,6 +9,7 @@
 .header__brand {
   font-family: 'Pacifico', cursive;
   font-size: xx-large;
+  flex: 1;
 }
 
 .header__drawer {
@@ -18,4 +19,42 @@
 .header__links {
   display: flex;
   justify-content: center;
+}
+
+.header__breakLink {
+  display: none !important;
+}
+
+@media (max-width: 580px) {
+  .header {
+    justify-content: start;
+  }
+
+  .header__brand {
+    text-align: center;
+    display: inline-block;
+  }
+
+  .header__authLinks {
+    display: none;
+  }
+
+  .header__breakLink {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .header__brand {
+    font-size: x-large;
+  }
+}
+
+@media (max-width: 300px) {
+  .header {
+    padding: 0.5rem 0.5rem;
+  }
+  .header__brand {
+    font-size: 1.4rem;
+  }
 }

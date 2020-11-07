@@ -57,7 +57,7 @@ const Headers: React.FC<Props> = ({ user }) => {
         <p className={styles.header__brand}>
           <Link href="/">The BestPrinters.in</Link>
         </p>
-        <div>
+        <div className={styles.header__authLinks}>
           {user ? (
             <>
               <Button>{user.username}</Button>
@@ -107,6 +107,45 @@ const Headers: React.FC<Props> = ({ user }) => {
               <ListItemText primary="Contact Us" />
             </Link>
           </ListItem>
+          {user ? (
+            <>
+              <ListItem button className={styles.header__breakLink}>
+                <ListItemIcon>
+                  <SupervisorAccountIcon />
+                </ListItemIcon>
+                <ListItemText primary={user.username} />
+              </ListItem>
+              <ListItem
+                button
+                className={styles.header__breakLink}
+                onClick={handleSignOut}
+              >
+                <ListItemIcon>
+                  <SupervisorAccountIcon />
+                </ListItemIcon>
+                <ListItemText primary="Logout" />
+              </ListItem>
+            </>
+          ) : (
+            <>
+              <ListItem button className={styles.header__breakLink}>
+                <ListItemIcon>
+                  <SupervisorAccountIcon />
+                </ListItemIcon>
+                <Link href="/register">
+                  <ListItemText primary="Register" />
+                </Link>
+              </ListItem>
+              <ListItem button className={styles.header__breakLink}>
+                <ListItemIcon>
+                  <SupervisorAccountIcon />
+                </ListItemIcon>
+                <Link href="/login">
+                  <ListItemText primary="Login" />
+                </Link>
+              </ListItem>
+            </>
+          )}
           <ListItem button>
             <ListItemIcon>
               <SupervisorAccountIcon />

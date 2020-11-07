@@ -1,9 +1,16 @@
 .login {
-  min-height: 60vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 5rem 0;
+  margin: 1rem 0;
   border: 1px solid lightgray;
-  padding: 5rem;
+  padding: 6rem;
+}
+
+@media (max-width: 430px) {
+  .login {
+    padding: 2rem;
+    /* justify-content: center; */
+    align-items: center;
+  }
 }
