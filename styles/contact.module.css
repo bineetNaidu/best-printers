@@ -1,0 +1,36 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem auto;
+}
+
+.about__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 400px;
+}
+
+.about__follows {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about__img {
+  width: 100px;
+  /* margin: auto; */
+  object-fit: contain;
+  margin-bottom: 1.5rem;
+  filter: invert(1);
+}
+
+.about__form > h1 > small {
+  font-size: x-small;
+  font-weight: 300;
+  float: right;
+  display: flex;
+  align-items: center;
+}

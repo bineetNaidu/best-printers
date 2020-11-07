@@ -87,7 +87,7 @@ const Headers: React.FC<Props> = ({ user }) => {
             <ListItemIcon>
               <HomeIcon />
             </ListItemIcon>
-            <Link href="/home">
+            <Link href="/">
               <ListItemText primary="Home" />
             </Link>
           </ListItem>
