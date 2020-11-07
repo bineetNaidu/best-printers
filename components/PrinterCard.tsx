@@ -9,7 +9,9 @@ import styles from './PrinterCard.module.css';
 import { useEffect, useState } from 'react';
 import Box from '@material-ui/core/Box';
 import Skeleton from '@material-ui/lab/Skeleton';
-
+import Chip from '@material-ui/core/Chip';
+import DoneIcon from '@material-ui/icons/Done';
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 interface Props {
   id: string;
   name: string;
@@ -17,9 +19,11 @@ interface Props {
   url: string;
   createdAt: string | Date;
   reviews?: any[];
+  price: number;
+  link: string;
 }
 
-const PrinterCard: React.FC<Props> = ({ name, url, description }) => {
+const PrinterCard: React.FC<Props> = ({ name, url, description, price }) => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => setLoading(false), 3000);
@@ -40,6 +44,15 @@ const PrinterCard: React.FC<Props> = ({ name, url, description }) => {
               image={url}
               title={name}
             />
+            <Chip
+              variant="default"
+              color="secondary"
+              deleteIcon={<DoneIcon />}
+              icon={<AttachMoneyIcon />}
+              className={styles.productCard__chip}
+              label={price}
+            />
+
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
                 {name}
