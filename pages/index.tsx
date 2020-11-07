@@ -6,7 +6,7 @@ const index = () => {
   const { docs } = useFirestore('printers');
   return (
     <Container>
-      {docs.length && docs.map((p) => <PrinterCard key={p.id} {...p} />)}
+      {docs && docs.map((p) => <PrinterCard key={p.id} {...p} />)}
     </Container>
   );
 };

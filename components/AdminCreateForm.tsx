@@ -9,6 +9,8 @@ const AdminCreateForm = () => {
   // States
   const [name, handleName, resetname] = useFormState('');
   const [description, handleDescription, resetDesc] = useFormState('');
+  const [price, handlePrice, resetPrice] = useFormState(0);
+  const [link, handleLink, resetlink] = useFormState('');
   const [file, setFile] = useState<any>(undefined);
   const [ready, setReady] = useState<boolean>(false);
 
@@ -33,6 +35,21 @@ const AdminCreateForm = () => {
         onChange={handleName}
       />
       <TextField
+        label="Price"
+        variant="outlined"
+        margin="normal"
+        type="number"
+        value={price}
+        onChange={handlePrice}
+      />
+      <TextField
+        label="Affilate Link"
+        variant="outlined"
+        margin="normal"
+        value={link}
+        onChange={handleLink}
+      />
+      <TextField
         label="Description"
         multiline
         variant="outlined"
@@ -54,6 +71,10 @@ const AdminCreateForm = () => {
           description={description}
           resetDesc={resetDesc}
           setReady={setReady}
+          price={price}
+          resetPrice={resetPrice}
+          link={link}
+          resetLink={resetlink}
         />
       )}
     </form>

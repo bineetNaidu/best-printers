@@ -9,6 +9,10 @@ interface Props {
   resetDesc: () => void;
   resetName: () => void;
   setReady: React.Dispatch<boolean>;
+  link: string;
+  resetLink: () => void;
+  price: number;
+  resetPrice: () => void;
 }
 
 const ProgressBar: React.FC<Props> = ({
@@ -19,12 +23,16 @@ const ProgressBar: React.FC<Props> = ({
   resetName,
   setReady,
   description,
+  resetLink,
+  resetPrice,
+  link,
+  price,
 }) => {
   // HOOKS
   const { url, progress, error } = useStorage(
     'printers',
     file,
-    { name, description },
+    { name, description, link, price },
     setReady
   );
   error && alert(error);
@@ -34,6 +42,8 @@ const ProgressBar: React.FC<Props> = ({
       setFile(null);
       resetName();
       resetDesc();
+      resetLink();
+      resetPrice();
     }
     // eslint-disable-next-line
   }, [url, setFile, setReady]);
