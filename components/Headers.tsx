@@ -146,14 +146,6 @@ const Headers: React.FC<Props> = ({ user }) => {
               </ListItem>
             </>
           )}
-          <ListItem button>
-            <ListItemIcon>
-              <SupervisorAccountIcon />
-            </ListItemIcon>
-            <Link href="/admin">
-              <ListItemText primary="Admin" />
-            </Link>
-          </ListItem>
         </List>
         <Divider />
         <div className={styles.header__links}>
