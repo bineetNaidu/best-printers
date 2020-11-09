@@ -10,24 +10,19 @@ import { useEffect, useState } from 'react';
 import Box from '@material-ui/core/Box';
 import Skeleton from '@material-ui/lab/Skeleton';
 import Chip from '@material-ui/core/Chip';
-import DoneIcon from '@material-ui/icons/Done';
-import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
-interface Props {
-  id: string;
-  name: string;
-  description: string;
-  url: string;
-  createdAt: string | Date;
-  reviews?: any[];
-  price: number;
-  link: string;
-}
+import ApiDataType from '../types/ApiDataTypes';
 
-const PrinterCard: React.FC<Props> = ({ name, url, description, price }) => {
+const PrinterCard: React.FC<ApiDataType> = ({
+  name,
+  para1,
+  heroImage,
+  price,
+}) => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    setTimeout(() => setLoading(false), 3000);
+    setTimeout(() => setLoading(false), 2000);
   }, []);
+
   return (
     <Card className={styles.productCard}>
       {loading ? (
@@ -41,16 +36,14 @@ const PrinterCard: React.FC<Props> = ({ name, url, description, price }) => {
           <CardActionArea>
             <CardMedia
               className={styles.productCard__img}
-              image={url}
+              image={`https://the-best-printers-api-server.herokuapp.com${heroImage[0].url}`}
               title={name}
             />
             <Chip
               variant="default"
               color="secondary"
-              deleteIcon={<DoneIcon />}
-              icon={<AttachMoneyIcon />}
               className={styles.productCard__chip}
-              label={price}
+              label={'₹ ' + price}
             />
 
             <CardContent>
@@ -58,7 +51,7 @@ const PrinterCard: React.FC<Props> = ({ name, url, description, price }) => {
                 {name}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-                {description.substring(0, 50)}...
+                {para1.substring(0, 50)}...
               </Typography>
             </CardContent>
           </CardActionArea>
