@@ -18,12 +18,7 @@ const DescriptionBlock: React.FC<Props> = ({
       {dir === 'default' ? (
         <>
           <div className={styles.block__left}>
-            <img
-              src={
-                'https://the-best-printers-api-server.herokuapp.com' + image.url
-              }
-              alt={image.name}
-            />
+            <img src={image?.url} alt={image?.name} />
           </div>
           <div className={styles.block__right}>
             <p>{paragraph}</p>
@@ -35,12 +30,7 @@ const DescriptionBlock: React.FC<Props> = ({
             <p>{paragraph}</p>
           </div>
           <div className={styles.block__left}>
-            <img
-              src={
-                'https://the-best-printers-api-server.herokuapp.com' + image.url
-              }
-              alt={image.name}
-            />
+            <img src={image?.url} alt={image?.name} />
           </div>
         </>
       )}

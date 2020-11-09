@@ -38,7 +38,7 @@ const PrinterCard: React.FC<ApiDataType> = ({
           <CardActionArea>
             <CardMedia
               className={styles.productCard__img}
-              image={`https://the-best-printers-api-server.herokuapp.com${heroImage[0].url}`}
+              image={heroImage[0].url}
               title={name}
             />
             <Chip

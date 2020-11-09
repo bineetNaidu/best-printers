@@ -11,7 +11,7 @@ const HeroImage: React.FC<Props> = ({ heroImage }) => {
       {heroImage.map((i) => (
         <img
           key={i._id}
-          src={`https://the-best-printers-api-server.herokuapp.com${i.url}`}
+          src={i.url}
           alt={i.name}
           width="80%"
           height={500}
