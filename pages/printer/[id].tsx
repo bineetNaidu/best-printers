@@ -4,6 +4,7 @@ import { baseUrl } from '../../config';
 import { useRouter } from 'next/router';
 import Error from 'next/error';
 import HeroImage from '../../components/printersPage/HeroImage';
+import DescriptionBlock from '../../components/printersPage/DescriptionBlock';
 
 interface Props {
   printer: ApiDataType;
@@ -19,6 +20,13 @@ const printerId: React.FC<Props> = ({ printer }) => {
     <div>
       <HeroImage heroImage={printer.heroImage} />
       <h1>{printer.name}</h1>
+      <DescriptionBlock paragraph={printer.para1} image={printer.img1} />
+      <DescriptionBlock
+        paragraph={printer.para2}
+        image={printer.img2}
+        dir="invert"
+      />
+      <DescriptionBlock paragraph={printer.para3} image={printer.img3} />
     </div>
   );
 };

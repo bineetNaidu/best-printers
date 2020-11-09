@@ -1,0 +1,19 @@
+.block {
+  display: flex;
+  margin: 0 5rem;
+}
+
+.block__left,
+.block__right {
+  flex: 1;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.block__left img {
+  object-fit: contain;
+  width: 80%;
+  height: 400px;
+}
