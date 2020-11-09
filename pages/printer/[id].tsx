@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import Error from 'next/error';
 import HeroImage from '../../components/printersPage/HeroImage';
 import DescriptionBlock from '../../components/printersPage/DescriptionBlock';
+import ProsAndCons from '../../components/printersPage/ProsAndCons';
 
 interface Props {
   printer: ApiDataType;
@@ -27,6 +28,7 @@ const printerId: React.FC<Props> = ({ printer }) => {
         dir="invert"
       />
       <DescriptionBlock paragraph={printer.para3} image={printer.img3} />
+      <ProsAndCons pros={printer.pros} cons={printer.cons} />
     </div>
   );
 };

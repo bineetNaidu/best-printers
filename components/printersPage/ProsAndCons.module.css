@@ -1,0 +1,12 @@
+.prosncons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5rem;
+}
+
+.prosncons__left,
+.prosncons__right {
+  flex: 1;
+  padding: 0 50px;
+}
