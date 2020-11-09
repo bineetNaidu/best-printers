@@ -3,6 +3,7 @@ import ApiDataType from '../../types/ApiDataTypes';
 import { baseUrl } from '../../config';
 import { useRouter } from 'next/router';
 import Error from 'next/error';
+import HeroImage from '../../components/printersPage/HeroImage';
 
 interface Props {
   printer: ApiDataType;
@@ -16,6 +17,7 @@ const printerId: React.FC<Props> = ({ printer }) => {
   }
   return (
     <div>
+      <HeroImage heroImage={printer.heroImage} />
       <h1>{printer.name}</h1>
     </div>
   );
