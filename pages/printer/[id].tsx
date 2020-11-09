@@ -1,0 +1,42 @@
+import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
+import ApiDataType from '../../types/ApiDataTypes';
+import { baseUrl } from '../../config';
+import { useRouter } from 'next/router';
+import Error from 'next/error';
+
+interface Props {
+  printer: ApiDataType;
+}
+
+const printerId: React.FC<Props> = ({ printer }) => {
+  const { isFallback } = useRouter();
+
+  if (!isFallback && !printer) {
+    return <Error statusCode={404} title="This tweet could not be found" />;
+  }
+  return (
+    <div>
+      <h1>{printer.name}</h1>
+    </div>
+  );
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const id = params.id;
+  const res = await fetch(`${baseUrl}/api/printers/${id}`);
+  const printer: ApiDataType = await res.json();
+  return {
+    props: {
+      printer,
+    },
+  };
+};
+
+export const getStaticPaths = async () => {
+  return {
+    paths: [{ params: { id: '5fa8424c95be370017044897' } }],
+    fallback: false,
+  };
+};
+
+export default printerId;

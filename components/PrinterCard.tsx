@@ -11,8 +11,10 @@ import Box from '@material-ui/core/Box';
 import Skeleton from '@material-ui/lab/Skeleton';
 import Chip from '@material-ui/core/Chip';
 import ApiDataType from '../types/ApiDataTypes';
+import Link from 'next/link';
 
 const PrinterCard: React.FC<ApiDataType> = ({
+  id,
   name,
   para1,
   heroImage,
@@ -60,7 +62,7 @@ const PrinterCard: React.FC<ApiDataType> = ({
               Share
             </Button>
             <Button size="small" color="primary">
-              View
+              <Link href={`/printer/${id}`}>View</Link>
             </Button>
           </CardActions>
         </>
