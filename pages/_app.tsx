@@ -1,6 +1,6 @@
 import Footer from '../components/Footer';
 import Headers from '../components/Headers';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import { projectAuth } from '../firebase';
 // Statics
 import '../styles/globals.css';
@@ -36,4 +36,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp;
+export default memo(MyApp);

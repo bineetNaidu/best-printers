@@ -11,7 +11,7 @@ import IconButton from '@material-ui/core/IconButton';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import InfoIcon from '@material-ui/icons/Info';
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
@@ -164,4 +164,4 @@ const Headers: React.FC<Props> = ({ user }) => {
   );
 };
 
-export default Headers;
+export default memo(Headers);

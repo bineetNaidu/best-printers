@@ -1,11 +1,6 @@
 import styles from './Footer.module.css';
-import IconButton from '@material-ui/core/IconButton';
-import FacebookIcon from '@material-ui/icons/Facebook';
-import InstagramIcon from '@material-ui/icons/Instagram';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { memo } from 'react';
 
 const Footer: React.FC = () => {
   return (
@@ -20,4 +15,4 @@ const Footer: React.FC = () => {
   );
 };
 
-export default Footer;
+export default memo(Footer);

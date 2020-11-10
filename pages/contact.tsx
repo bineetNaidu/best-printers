@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import styles from '../styles/contact.module.css';
 import IconButton from '@material-ui/core/IconButton';
 import FacebookIcon from '@material-ui/icons/Facebook';
@@ -56,4 +57,4 @@ const about: React.FC = () => {
   );
 };
 
-export default about;
+export default memo(about);

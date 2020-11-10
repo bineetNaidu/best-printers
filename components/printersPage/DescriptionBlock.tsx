@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { ImageTypes } from '../../types/ApiDataTypes';
 import styles from './DescriptionBlock.module.css';
 
@@ -38,4 +38,4 @@ const DescriptionBlock: React.FC<Props> = ({
   );
 };
 
-export default DescriptionBlock;
+export default memo(DescriptionBlock);

@@ -6,7 +6,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import styles from './PrinterCard.module.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, memo } from 'react';
 import Box from '@material-ui/core/Box';
 import Skeleton from '@material-ui/lab/Skeleton';
 import Chip from '@material-ui/core/Chip';
@@ -71,4 +71,4 @@ const PrinterCard: React.FC<ApiDataType> = ({
   );
 };
 
-export default PrinterCard;
+export default memo(PrinterCard);

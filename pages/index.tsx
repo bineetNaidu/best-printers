@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PrinterCard from '../components/PrinterCard';
 import Container from '@material-ui/core/Container';
 import styles from '../styles/index.module.css';
@@ -30,4 +30,4 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-export default index;
+export default memo(index);

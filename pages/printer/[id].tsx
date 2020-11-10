@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
+import { GetStaticProps } from 'next';
 import ApiDataType from '../../types/ApiDataTypes';
 import { baseUrl } from '../../config';
 import { useRouter } from 'next/router';
@@ -45,8 +45,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
+  const res = await fetch(`${baseUrl}/api/printers`);
+  const printers: ApiDataType[] = await res.json();
+  const pathDirs = printers.map((p) => ({ params: { id: p._id } }));
   return {
-    paths: [{ params: { id: '5fa8424c95be370017044897' } }],
+    paths: pathDirs,
     fallback: false,
   };
 };
