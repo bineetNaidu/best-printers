@@ -15,7 +15,7 @@ const ProsAndCons: React.FC<Props> = ({ pros, cons }) => {
     <div className={styles.prosncons}>
       <Card className={styles.prosncons__left}>
         <List
-          component="li"
+          component="ul"
           aria-labelledby="nested-list-subheader"
           subheader={
             <ListSubheader component="div" id="nested-list-subheader">

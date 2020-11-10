@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { GetStaticProps } from 'next';
 import ApiDataType from '../../types/ApiDataTypes';
 import { baseUrl } from '../../config';
@@ -9,14 +10,19 @@ import ProsAndCons from '../../components/printersPage/ProsAndCons';
 import styles from '../../styles/printerId.module.css';
 
 interface Props {
-  printer: ApiDataType;
+  printerData: ApiDataType;
 }
 
-const printerId: React.FC<Props> = ({ printer }) => {
+const printerId: React.FC<Props> = ({ printerData }) => {
   const { isFallback } = useRouter();
+  const [printer, setPrinter] = useState(printerData);
+
+  useEffect(() => {
+    setPrinter(printerData);
+  }, [printerData, setPrinter, printer]);
 
   if (!isFallback && !printer) {
-    return <Error statusCode={404} title="This tweet could not be found" />;
+    return <Error statusCode={404} />;
   }
   return (
     <div className={styles.printerId}>
@@ -37,10 +43,10 @@ const printerId: React.FC<Props> = ({ printer }) => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const id = params.id;
   const res = await fetch(`${baseUrl}/api/printers/${id}`);
-  const printer: ApiDataType = await res.json();
+  const printerData: ApiDataType = await res.json();
   return {
     props: {
-      printer,
+      printerData,
     },
   };
 };
