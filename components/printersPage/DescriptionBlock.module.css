@@ -17,3 +17,7 @@
   width: 80%;
   height: 400px;
 }
+
+.block__right p {
+  text-align: justify;
+}

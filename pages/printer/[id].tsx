@@ -6,6 +6,7 @@ import Error from 'next/error';
 import HeroImage from '../../components/printersPage/HeroImage';
 import DescriptionBlock from '../../components/printersPage/DescriptionBlock';
 import ProsAndCons from '../../components/printersPage/ProsAndCons';
+import styles from '../../styles/printerId.module.css';
 
 interface Props {
   printer: ApiDataType;
@@ -18,7 +19,7 @@ const printerId: React.FC<Props> = ({ printer }) => {
     return <Error statusCode={404} title="This tweet could not be found" />;
   }
   return (
-    <div>
+    <div className={styles.printerId}>
       <HeroImage heroImage={printer.heroImage} />
       <h1>{printer.name}</h1>
       <DescriptionBlock paragraph={printer.para1} image={printer.img1} />
