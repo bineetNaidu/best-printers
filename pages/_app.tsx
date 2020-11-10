@@ -26,7 +26,6 @@ function MyApp({ Component, pageProps }) {
       unSubAuthState();
     };
   }, []);
-  console.log('rendering');
   return (
     <>
       <Headers user={user} />
