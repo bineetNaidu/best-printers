@@ -10,3 +10,17 @@
   flex: 1;
   padding: 0 50px;
 }
+
+@media (max-width: 650px) {
+  .prosncons {
+    flex-direction: column;
+  }
+
+  .prosncons__left,
+  .prosncons__right {
+    margin: 20px;
+    padding: 2px;
+    flex: 1;
+    width: 100%;
+  }
+}

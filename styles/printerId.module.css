@@ -4,3 +4,9 @@
   margin: 0 5rem;
   text-align: center;
 }
+
+@media (max-width: 950px) {
+  .printerId {
+    margin: 0rem;
+  }
+}

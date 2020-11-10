@@ -21,3 +21,15 @@
 .block__right p {
   text-align: justify;
 }
+
+@media (max-width: 680px) {
+  .block {
+    margin: 0 1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .block {
+    flex-direction: column;
+  }
+}
