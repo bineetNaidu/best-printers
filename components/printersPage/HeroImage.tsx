@@ -8,18 +8,19 @@ interface Props {
 const HeroImage: React.FC<Props> = ({ heroImage }) => {
   return (
     <div>
-      {heroImage.map((i) => (
-        <img
-          key={i._id}
-          src={i.url}
-          alt={i.name}
-          width="80%"
-          height={500}
-          style={{
-            objectFit: 'contain',
-          }}
-        />
-      ))}
+      {heroImage &&
+        heroImage.map((i) => (
+          <img
+            key={i._id}
+            src={i.url}
+            alt={i.name}
+            width="80%"
+            height={500}
+            style={{
+              objectFit: 'contain',
+            }}
+          />
+        ))}
     </div>
   );
 };
