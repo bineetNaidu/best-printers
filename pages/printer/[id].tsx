@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import { GetStaticProps } from 'next';
 import ApiDataType from '../../types/ApiDataTypes';
 import { baseUrl } from '../../config';
@@ -52,13 +52,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const res = await fetch(`${baseUrl}/api/printers`);
-  const printers: ApiDataType[] = await res.json();
-  const pathDirs = printers.map((p) => ({ params: { id: p._id } }));
   return {
-    paths: pathDirs,
-    fallback: false,
+    paths: [],
+    fallback: true,
   };
 };
 
-export default printerId;
+export default memo(printerId);
