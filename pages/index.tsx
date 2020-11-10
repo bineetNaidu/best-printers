@@ -2,9 +2,9 @@ import React, { memo } from 'react';
 import PrinterCard from '../components/PrinterCard';
 import Container from '@material-ui/core/Container';
 import styles from '../styles/index.module.css';
-import { baseUrl } from '../config';
 import ApiDataType from '../types/ApiDataTypes';
 import { GetStaticProps } from 'next';
+import Axios from '../axios';
 
 interface Props {
   printers: ApiDataType[];
@@ -21,8 +21,8 @@ const index: React.FC<Props> = ({ printers }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch(`${baseUrl}/api/printers`);
-  const printers: ApiDataType = await res.json();
+  const res = await Axios.get('/printers');
+  const printers: ApiDataType = res.data;
   return {
     props: {
       printers,

@@ -1,13 +1,13 @@
 import { useState, useEffect, memo } from 'react';
 import { GetStaticProps } from 'next';
 import ApiDataType from '../../types/ApiDataTypes';
-import { baseUrl } from '../../config';
 import { useRouter } from 'next/router';
 import Error from 'next/error';
 import HeroImage from '../../components/printersPage/HeroImage';
 import DescriptionBlock from '../../components/printersPage/DescriptionBlock';
 import ProsAndCons from '../../components/printersPage/ProsAndCons';
 import styles from '../../styles/printerId.module.css';
+import axios from '../../axios';
 
 interface Props {
   printerData: ApiDataType;
@@ -42,8 +42,8 @@ const printerId: React.FC<Props> = ({ printerData }) => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const id = params.id;
-  const res = await fetch(`${baseUrl}/api/printers/${id}`);
-  const printerData: ApiDataType = await res.json();
+  const res = await axios.get(`/printers/${id}`);
+  const printerData: ApiDataType = await res.data;
   return {
     props: {
       printerData,
