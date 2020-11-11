@@ -50,7 +50,7 @@ const Headers: React.FC<Props> = ({ user }) => {
     <>
       <div className={styles.header}>
         <div>
-          <IconButton onClick={handleDrawerOpen}>
+          <IconButton onClick={handleDrawerOpen} aria-label="drawer">
             <MenuIcon />
           </IconButton>
         </div>
