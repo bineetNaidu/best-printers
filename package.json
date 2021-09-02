@@ -13,7 +13,7 @@
     "@material-ui/lab": "^4.0.0-alpha.56",
     "axios": "^0.21.1",
     "firebase": "^8.0.0",
-    "next": "11.1.0",
+    "next": "11.1.1",
     "react": "17.0.1",
     "react-dom": "17.0.1"
   },
